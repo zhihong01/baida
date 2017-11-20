@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/nav.css">
+	<style>
+	/*定位我们*/
+	.main h2{text-align:center;margin:50px 0}
+	.main-top{
+	  background:#DDD;
+	  width:100%;
+	  padding:100px 0;
+	  transition:all .3s linear;
+	  }
+	.main-top:hover{background:rgba(221,221,221,0.4)}
+	.mt-left{text-align:center;}
+	.mt-left img{width:80%}
+	.mt-right>div{
+	  background:rgba(85,172,201,0.8);
+	  width:80%;
+	  padding-bottom:70%;
+	  margin:0 auto;
+	  position:relative;
+	  }
+	.address{
+	  border:2px dotted white;
+	  width:80%;
+	  height:80%;
+	  position:absolute;
+	  top:0;
+	  bottom:0;
+	  left:0;
+	  right:0;
+	  margin:auto;
+	}
+	.address div{
+	  width:100%;
+	  position:absolute;
+	  top:15%;
+	  text-align:center;
+	}
+	.address p:nth-child(2),.address p:nth-child(3){color:white}
+	/*联系我们*/
+	.main-bottom{width:100%;padding-bottom:100px}
+	.ipt div{margin-top:15px;}
+    .ipt input,.ipt textarea{
+	  width:100%;
+	  padding:10px;
+	  resize:none;
+	  box-shadow:0 0 10px #000 inset
+	  }
+    .ipt input[type="button"]{
+	  box-shadow:none;
+	  border:none;
+	  background:#55acc9;
+	  }
+	.mb-right{position:relative;padding:0;}
+	.mb-right img{width:100%;margin:15px 0 0 0;}
+	.mb-right img:hover+.mb-del,.mb-del:hover{  
+	  top:14px
+	}
+	.mb-del{
+	  position:absolute;
+	  top:100%;
+	  background:rgba(0,0,0,0.7);
+	  width:100%;
+	  padding-bottom:47%;
+      transition:top .5s linear;
+	  color:white;
+	  }
+	.mb-del>div{
+	  position:absolute;
+	  top:0;
+	  text-align:center;
+	  }
+	.mb-null{
+	  position:absolute;
+	  top:100%;
+	  width:100%;
+	  padding-bottom:47%;
+	  z-index:10;
+	  background:white;
+	}
+	.mb-null h1{text-align:center;margin-top:30px}
+	/*页面底部*/
+	.footer{
+	  position:absolute;
+	  bottom:0;
+	  width:100%;
+	  background:#333;
+	  z-index:100;
+	  }
+	.footer a{
+	  color:#add8e6;
+	  line-height:50px;
+	  }
+	.footer p{
+	  color:#fff;
+	  line-height:50px;
+	}
+	@media screen and (max-width:768px){
+	  .footer{text-align:center;}
+	  .footer a,.footer p{line-height:20px;}
+	}
+	</style>
+</head>
+<body>
+  <div class="header">
+    <div class="nav head">
+	   <nav class="navbar navbar-inverse nav-fixed-top">
+	     <div class="container">
+		   <div class="navbar-header">
+		     <a href="index.html"><img src="img/logo.jpg"></a>
+		     <a href="#menu" class="navbar-toggle" data-toggle="collapse">  	
+	           <span class="sr-only">导航栏</span>
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			 </a>
+		   </div>
+		   <div class="collapse navbar-collapse" id="menu">
+		     <ul class="nav navbar-nav navbar-right menu slide">
+			   <li><a href="index.html" class="orange">主页</a></li>
+			   <li><a href="about.html" class="orange">关于</a></li>
+			   <li><a href="shop.html" class="orange">商城</a></li>
+			   <li><a href="dining.html" class="orange">进餐</a></li>
+			   <li><a href="entertainment.html" class="orange">娱乐</a></li>
+			   <li><a href="contact.html" class="orange">联系我们</a></li>
+			 </ul>
+		   </div>
+		 </div>
+	   </nav>
+       <div class="clearfix"></div>
+	</div>
+	<div>
+	  <img src="img/banner1.jpg" alt="图片加载失败" class="img-responsive">
+	</div>  
+  </div>
+  <div class="main">
+    <h2>我们的地址</h2>
+	<div class="container main-top">
+	  <div class="row">
+	    <div class="col-md-4 col-sm-6 col-xs-12 mt-left">
+		  <img src="img/add-img5.png" alt="图片加载失败">
+		</div>
+	    <div class="col-md-4 col-xs-0"> 
+		</div>
+		<div class="col-md-4 mt-right col-xs-12 col-sm-6">
+		  <div>
+		    <div class="address text-center">
+			  <div>
+			    <h3>位置信息</h3>
+			    <p>云路街.百大广场</p>
+			    <p>电话：0564-2319110</p>
+			    <p>邮箱地址：<span class="text-info">baida@shangcheng.com</span></p>
+			  </div>  
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<h2>联系我们</h2>
+	<div class="container main-bottom">
+	  <div class="row">
+	    <div class="col-sm-6 col-xs-12">
+		  <div class="row ipt">
+		    <div class="col-md-6 col-xs-12">
+			  <input type="text" placeholder="姓名" id="uname">
+			</div>
+		    <div class="col-md-6 col-xs-12">
+			  <input type="text" placeholder="邮箱" id="email">
+			</div>
+		    <div class="col-md-6 col-xs-12">
+			  <input type="text" placeholder="手机号" id="phone">
+			</div>
+		    <div class="col-md-6 col-xs-12">
+			  <input type="text" placeholder="主题" id="subject">
+			</div>
+		    <div class="col-xs-12">
+			  <textarea placeholder="意见建议" rows=10></textarea>
+			</div>
+            <div class="col-xs-12">
+			  <input type="button" value="提交">
+			</div>
+		  </div>
+		</div>
+	    <div class="col-sm-6 col-xs-12 mb-right" style="overflow:hidden;">
+		  <img src="img/47.jpg">
+		  <div class="mb-del">
+		    <div>
+			 <h3>我们的优势</h3><hr><hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolorem rem nobis alias repudiandae consequuntur atque dicta laudantium. Provident, expedita minima quis dolorum veniam tempora temporibus voluptas esse? Pariatur, adipisci!
+			</p> 
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="footer"> 
+	   <div class="contain">
+	     <div class="row">
+		   <div class="col-sm-5 col-xs-12 col-sm-offset-1">
+		     <div>
+			 <a href="javascript:;">关于本站</a>
+			 <a href="javascript:;">常见问题</a> 
+			 <a href="javascript:;">全站地图</a> 
+			 <a href="javascript:;">意见反馈</a>
+			 </div>
+		   </div>
+		   <div class="col-sm-6 col-xs-12">
+		     <p>
+			   京公网安备 11000002000001号京ICP证030173号
+			 </p>
+		   </div>
+		 </div>
+	   </div>
+  </div>
+   <script src="js/jquery-1.11.3.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <script src="js/contact.js"></script>
+</body>
+</html>

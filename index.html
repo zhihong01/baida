@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/nav.css" rel="stylesheet">
+  <style>
+	/*轮播图部分*/
+	.banner{position:relative;}
+	ul.scroll-top{
+	  list-style:none;
+	  width:100%
+	}
+	.scroll-top li{
+	  width:20%;height:100%;
+	  float:left;
+	  transition:all 1s;
+	  transform-style:preserve-3d
+	}
+	.scroll-top div{width:100%;height:100%;position:absolute;overflow:hidden;}
+	.one{transform:rotateX(0deg) translateZ(190px)}
+	.two{transform:rotateX(-90deg) translateZ(190px)}
+	.three{transform:rotateX(-180deg) translateZ(190px)}
+	.four{transform:rotateX(-270deg) translateZ(190px)}
+	.scroll-top li:nth-child(2){
+	  transition:all 1s .1s;
+	}
+	.scroll-top li:nth-child(3){
+	  transition:all 1s .2s;
+	}
+	.scroll-top li:nth-child(4){
+	  transition:all 1s .3s;
+	}
+	.scroll-top li:nth-child(5){
+	  transition:all 1s .4s;
+	}
+	.scroll-top li:nth-child(2) img{position:relative;left:-100%}
+	.scroll-top li:nth-child(3) img{position:relative;left:-200%}
+	.scroll-top li:nth-child(4) img{position:relative;left:-300%}
+	.scroll-top li:nth-child(5) img{position:relative;left:-400%}
+	.prev,.next{
+	    width:48px;
+		height:88px;
+		text-align:center;
+		line-height:88px;
+		position:absolute;
+		top:30px;
+		bottom:30px;
+		margin:auto 0;
+		background:pink;
+		border-radius:24px;
+		font-size:40px;
+		opacity:0;
+        transition:all .5s linear;
+		z-index:10
+	}
+	.next{right:0}
+	.banner:hover .next,.banner:hover .prev,.next:hover,.prev:hover{
+	    opacity:0.6	
+	}
+	@media screen and (min-width:1441px){
+     .scroll-top,.scroll-top img{width:1600px;height:556px}
+    }
+    @media screen and (max-width:1440px) and (min-width:1220px){
+      .scroll-top,.scroll-top img{width:1440px;height:500px}
+    }
+    @media screen and (max-width:1220px) and (min-width:991px){
+      .scroll-top,.scroll-top img{width:1220px;height:424px}
+    }
+    @media screen and (max-width:990px) and (min-width:769px){
+      .scroll-top,.scroll-top img{width:990px;height:344px}
+    }
+    @media screen and (max-width:770px){
+      .scroll-top,.scroll-top img{width:768px;height:266px}
+    }
+	/*主体头部*/
+    .h-row{padding:100px 0}
+    .h-con1,.h-con2,.h-con3{
+	  height:374px;
+	  background:#add8e6;
+	  width:80%;
+	  margin:10px auto;
+	  padding:10px;
+	  text-align:center;
+	  border-radius:8px;
+	  } 
+    .h-con1 div,.h-con3 div{
+	  background:url("img/icon1.png") no-repeat;
+	  height:25%;
+	  width:100px;
+	  background-size:100% 100%;
+	  margin:30px auto;
+	  filter: drop-shadow(10px 10px 2px rgba(0,0,0,0.2));
+	}
+	.h-con2 div{
+	  background:url("img/icon2.png") 0px 0px no-repeat;
+	  height:25%;
+	  width:100px;
+	  margin:30px auto;
+	  background-size:100% 100%;
+      filter: drop-shadow(10px 10px 2px rgba(0,0,0,0.2));
+	}
+	
+	/*主体详情*/
+	.main-about{
+	  width:100%;
+	  background:#ffffe0;
+	  padding:20px
+	}
+	.main-about h1{text-align:center;margin-bottom:20px}
+	.a-left div{
+	  height:340px;
+	  background:url("img/img10.jpg") no-repeat;
+	  width:90%;
+	  background-size:100% 100%;
+	  margin:0 auto;
+	  border:solid #cfbaad 5px;
+	}
+	.a-middle div{
+	  width:90%;
+	  
+	  margin:0 auto;
+	}
+	
+	.a-right>div{
+	  background:url("img/img11.jpg") no-repeat;
+	  width:90%;
+	  height:340px;
+	  background-size:100% 100%;
+	  margin:0 auto;
+      position:relative;
+	}
+	.a-right>div>div{
+	  width:90%;
+	  height:90%;
+      position:absolute;
+	  top:10%;
+	  left:10%;
+	  text-align:right;
+	  line-height:306px;
+	  opacity:0;
+	}
+	
+	
+	/*主体底部*/
+    .bot-row>div{background:#AED7E6;padding-bottom:16%;opacity:0}
+	.bot-row>div:nth-child(4n+1){margin-top:320px;border-radius:50%}
+	.bot-row>div:nth-child(2n+2){margin-top:200px;border-radius:50%}
+	.bot-row>div:nth-child(4n+3){margin-top:80px;border-radius:50%}
+	.bot-row>div:hover{background:pink}
+	.bot-row>.col-md-2>div{position:absolute;top:50px;text-align:center}
+    .bot-row>.col-md-2 p{width:80%;text-align:center;margin:0 auto;position:relative;right:4px}
+	.main-bot h1{text-align:center;margin-top:40px}
+
+	/*主体底部2*/
+	.main-bot2{
+	  background:url("img/img12.jpg") 0px 0px no-repeat;
+	  background-size:cover;
+	  background-attachment:fixed;
+	  margin-top:100px;
+	  text-align:center;
+	  color:#fff;
+	  box-sizing:border-box;
+	  padding:100px 0;
+	  }
+	.main-bot2-con{height:310px}
+	.main-bot2-con h1{
+	  padding-bottom:10px;
+	  font-size:48px;
+	  }
+	.main-bot2-con>p{
+	  padding-bottom:50px;
+	  font-size:22px;
+	  letter-spacing:2px;
+	  }
+    .timer>div{
+	  width:150px;
+	  height:150px;
+	  border:solid #fff 3px;
+	  border-radius:50%;
+	  margin:0 10px;
+	  display:inline-block;
+	  font-size:60px;
+	  text-align:center;
+/*	  line-height:150px;*/
+	 opacity:1;
+	  }
+	.timer>div p{
+	  font-size:0.3em;
+	  height:auto;
+	}
+	/*主体底部3*/
+	.main-bot3{
+	  width:100%;
+	  }
+	.main-bot3 h1{
+	  text-align:center;
+	  margin:80px 0 40px 0;
+	}
+    .main-bot3-img{
+	  margin:0 auto;
+	  text-align:center;
+	  perspective:1000px;
+	}
+	.main-bot3-img img{
+	  width:18%;
+	  height:215px;
+	  margin:10px;
+	  box-shadow:5px 5px 3px #CCCCCC;
+	  border:7px solid #add8e5;
+	  transition:all .5s;
+	  transform:rotateY(0deg);
+	  transform-style: preserve-3d; 
+	}
+	/*页面底部*/
+	.footer{
+	  width:100%;
+	  background:#333;
+	  }
+	.footer a{
+	  color:#add8e6;
+	  line-height:50px;
+	  }
+	.footer p{
+	  color:#fff;
+	  line-height:50px;
+	}
+    @media screen and (max-width:992px) and (min-width:768px){
+	  /*主体头部*/
+	  .h-right{
+	    position:relative;
+	    left:25%
+	  }
+	  /*主体详情*/
+      .a-left div,.a-right>div{
+	    height:300px;
+	  }
+	  /*主体底部*/
+	  .bot-row{text-align:center}
+	  .bot-row>div{
+	    width:25%;
+		padding-bottom:25%;
+		margin:10px 20px 10px 20px !important;
+		display:inline-block;
+	  } 
+	  .main-bot3-img img{height:130px}
+	}
+	@media screen and (max-width:768px){
+	  .bot-row{text-align:center}
+	  .bot-row>div{
+	    width:40%;
+		padding-bottom:40%;
+		margin:5px 5px !important;
+		display:inline-block;
+	  }
+	  .main-bot2-con h1{
+	    font-size:44px;
+	  }
+	  .main-bot2-con>p{
+	    font-size:20px;
+	  }
+	  .timer>div{
+	    width:125px;
+	    height:125px;
+	    font-size:40px;
+	  }
+	  .main-bot3-img img{height:100px}
+	  /*页面底部*/
+	  .footer{text-align:center;}
+	  .footer a,.footer p{line-height:20px;}
+	}
+  </style>
+  <title>Document</title>
+ </head>
+ <body>
+   <div class="header">
+     <div class="nav head">
+	   <nav class="navbar navbar-inverse nav-fixed-top">
+	     <div class="container">
+		   <div class="navbar-header">
+		     <a href="index.html"><img src="img/logo.jpg"></a>
+		     <a href="#menu" class="navbar-toggle" data-toggle="collapse"> 	
+	           <span class="sr-only">导航栏</span>
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			   <span class="icon-bar"></span>
+			 </a>
+		   </div>
+		   <div class="collapse navbar-collapse" id="menu">
+		     <ul class="nav navbar-nav navbar-right menu slide">
+			   <li><a href="index.html" class="orange">主页</a></li>
+			   <li><a href="about.html" class="orange">关于</a></li>
+			   <li><a href="shop.html" class="orange">商城</a></li>
+			   <li><a href="dining.html" class="orange">进餐</a></li>
+			   <li><a href="entertainment.html" class="orange">娱乐</a></li>
+			   <li><a href="contact.html" class="orange">联系我们</a></li>
+			 </ul>
+		   </div>
+		 </div>
+	   </nav>
+       <div class="clearfix"></div>
+	 </div>
+	 <div class="banner">
+	   	<ul class="scroll-top">
+		  <li>
+			<div class="one"><img src="img/banner1.jpg"></div>
+			<div class="two"><img src="img/banner2.jpg"></div>
+			<div class="three"><img src="img/banner3.jpg"></div>
+			<div class="four"><img src="img/banner4.jpg"></div>
+		  </li>
+		  <li>
+			<div class="one"><img src="img/banner1.jpg"></div>
+			<div class="two"><img src="img/banner2.jpg"></div>
+			<div class="three"><img src="img/banner3.jpg"></div>
+			<div class="four"><img src="img/banner4.jpg"></div>
+		  </li>
+		  <li>
+			<div class="one"><img src="img/banner1.jpg"></div>
+			<div class="two"><img src="img/banner2.jpg"></div>
+			<div class="three"><img src="img/banner3.jpg"></div>
+			<div class="four"><img src="img/banner4.jpg"></div>
+		  </li>
+		  <li>
+			<div class="one"><img src="img/banner1.jpg"></div>
+			<div class="two"><img src="img/banner2.jpg"></div>
+			<div class="three"><img src="img/banner3.jpg"></div>
+			<div class="four"><img src="img/banner4.jpg"></div>
+		  </li>
+		  <li>
+			<div class="one"><img src="img/banner1.jpg"></div>
+			<div class="two"><img src="img/banner2.jpg"></div>
+			<div class="three"><img src="img/banner3.jpg"></div>
+			<div class="four"><img src="img/banner4.jpg"></div>
+		  </li>
+	    </ul>
+		<div class="prev"><a href="javascript:;">&lt;</a></div>
+		<div class="next"><a href="javascript:;">&gt;</a></div>
+	 </div>
+   </div>
+   <div class="main">
+	   <div class="main-head">
+		 <div class="container">
+		   <div class="row h-row">
+			 <div class="col-md-4 h-left col-sm-6">
+			   <div class="h-con1">
+				 <div></div>
+				 <h3>Heading 1</h3>
+				 <p>
+				   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, modi mollitia cum autem aliquam nobis voluptates voluptate qui! Facilis, accusamus reprehenderit nam magnam recusandae voluptatibus pariatur dicta at veritatis aspernatur.
+				 </p>
+			   </div>
+			 </div>
+			 <div class="col-md-4 h-middle col-sm-6">
+			   <div class="h-con2">
+				 <div></div>
+				 <h3>Heading 2</h3>
+				 <p>
+				   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, modi mollitia cum autem aliquam nobis voluptates voluptate qui! Facilis, accusamus reprehenderit nam magnam recusandae voluptatibus pariatur dicta at veritatis aspernatur.
+				 </p>
+			   </div>
+			 </div>
+			 <div class="col-md-4 h-right col-sm-6">
+			   <div class="h-con3">
+				 <div></div>
+				 <h3>Heading 3</h3>
+				 <p>
+				   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, modi mollitia cum autem aliquam nobis voluptates voluptate qui! Facilis, accusamus reprehenderit nam magnam recusandae voluptatibus pariatur dicta at veritatis aspernatur.
+				 </p>
+			   </div>
+			 </div>
+		   </div>
+		 </div>
+	   </div> 
+	   <div class="main-about">
+         <h1>简 介</h1>
+	     <div class="contain">
+		   <div class="row">
+		     <div class="col-sm-4 a-left">
+               <div></div>
+			 </div>
+		     <div class="col-sm-4 a-middle">
+			   <div>
+			    <h4>Heading about mall</h4>
+			    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, fuga, minima, fugit perspiciatis nobis temporibus omnis libero vero rerum ratione aperiam molestias totam repellat quas assumenda. Laborum facilis illo modi.</p> 
+			   </div>   
+			 </div>
+		     <div class="col-sm-4 a-right">
+			   <div>
+                 <div class="a-right-img"><img src="img/add-img1.png" class="img-responsive"></div>
+                 <div><img src="img/add-img2.png" class="img-responsive"></div>
+                 <div><img src="img/add-img3.png" class="img-responsive"></div>
+			   </div>
+			 </div>
+		   </div>
+		 </div>
+	   </div>
+	   <div class="main-bot">
+	     <h1>我们的服务</h1>
+	     <div class="contain">
+		   <div class="row bot-row">
+		     <div class="col-md-2 col-md-offset-1">
+			   <div>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,</p>
+			   </div>
+			 </div>
+		     <div class="col-md-2">
+			   <div>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,</p> 
+			   </div>
+			 </div>
+		     <div class="col-md-2">
+			   <div>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,</p>
+			   </div>
+			 </div>
+		     <div class="col-md-2">
+			   <div>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,</p>
+			   </div>
+			 </div>
+		     <div class="col-md-2">
+			   <div>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,</p> 
+			   </div>
+			 </div>
+		   </div>
+		 </div>
+	   </div>
+	   <div class="main-bot2">
+	     <div class="main-bot2-con">
+		   <h1>限 时 抢 购</h1>
+		   <p>全场限时<span class="text-danger">半价</span>购买</p>
+		   <div class="timer">
+           <!--倒计时-->
+		   </div>
+		 </div>
+	   </div>
+	   <div class="main-bot3">
+	     <h1>场 景</h1>
+		 <div class="main-bot3-img">
+		   <div>
+		     <img src="img/41.jpg">
+		     <img src="img/42.jpg">
+		     <img src="img/43.jpg">
+		     <img src="img/44.jpg">
+		   </div>
+		 </div>
+		 <div class="main-bot3-img">
+		   <div>
+		     <img src="img/45.jpg">
+		     <img src="img/46.jpg">
+		     <img src="img/47.jpg">
+		   </div>
+		 </div>
+		 <div class="main-bot3-img">
+		   <div>
+		     <img src="img/48.jpg">
+		     <img src="img/49.jpg">
+		     <img src="img/50.jpg">
+		     <img src="img/41.jpg">
+           </div>
+		 </div>
+	   </div>
+   </div>
+   <div class="footer"> 
+	   <div class="contain">
+	     <div class="row">
+		   <div class="col-sm-5 col-xs-12 col-sm-offset-1">
+		     <div>
+			 <a href="javascript:;">关于本站</a>
+			 <a href="javascript:;">常见问题</a> 
+			 <a href="javascript:;">全站地图</a> 
+			 <a href="javascript:;">意见反馈</a>
+			 </div>
+		   </div>
+		   <div class="col-sm-6 col-xs-12">
+		     <p>
+			   京公网安备 11000002000001号京ICP证030173号
+			 </p>
+		   </div>
+		 </div>
+	   </div>
+   </div>
+   <script src="js/jquery-1.11.3.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <script src="js/bootlint.js"></script>
+   <script>
+  //bootlint.showLintReportForCurrentDocument([]);
+  //轮播图
+  (function(){
+     var count=0,flag=true,time=null;
+     $(".prev").click(function(){
+		 clearInterval(time);
+	   scro(-1);
+	 });
+     $(".next").click(function(){
+		 clearInterval(time);
+	   scro(1);
+	 });
+     function scro(speed){
+	   if(flag){
+	     flag=false;
+		 count=count+speed;
+		 $(".scroll-top>li").css("transform","rotateX("+count*90+"deg)");
+		 setTimeout(function(){
+		   flag=true;
+		 },1300)
+	   }
+	 } 
+      timer=setInterval(function(){
+	   scro(-1)
+	 },3000);
+  })();
+  //淡入淡出
+  (function(){
+	  $aImg=$(".a-right>div>div");
+	  n=0;
+     setInterval(function(){
+        
+		  $aImg.eq(n).animate({opacity:1},1000).siblings().animate({opacity:0},1000);
+          n++;
+		if(n>$aImg.length-1){n=0}
+	    
+	 },2000)
+   })();
+   //滚动显示
+  (function(){
+     $(window).scroll(function(){
+		 
+	   if(parseInt($(this).scrollTop())>=1200){console.log("a");
+	     $(".bot-row>div:nth-child(4n+3)").animate({opacity:1},1000);
+		 $(".bot-row>div:nth-child(4n+1)").animate({opacity:1},1800);
+		 $(".bot-row>div:nth-child(2n+2)").animate({opacity:1},1400);
+	   }
+	 }) 
+   })();
+   //倒计时
+   (function(){
+      function showTime(){
+		 var target=new Date("2017/12/20");
+		 var now=new Date();
+		 var s=parseInt((target-now)/1000);
+		 var d=parseInt(s/3600/24);
+		 var h=parseInt(s%(3600*24)/3600);
+		 var m=parseInt(s%3600/60);
+		 var s=s%60;
+		 s=s<10?"0"+s:s;
+		 m=m<10?"0"+m:m;
+		 h=h<10?"0"+h:h;
+		 d=d<10?"0"+d:d;
+		var html="";
+		html+=`<div><span>${d}</span><p><i>Days</i></p></div>
+			 <div><span>${h}</span><p><i>Hours</i></p></div>
+			 <div><span>${m}</span><p><i>Minutes</i></p></div>
+			 <div><span>${s}</span><p><i>Seconds</i></p></div>`;
+	    $(".timer").html(html);
+	  }
+	  /*function valChange(){
+		var oldVal=$(".timer span").text();
+		if($(".timer span").text()!=oldVal){
+		  $(".timer span").css("opacity",0);
+		  $(".timer span").animate({opacity:1},500)
+		}
+	  }*/
+	  
+	  setInterval(showTime,1000);
+      
+   })();
+   (function(){
+	   var flag=true;
+      $(".main-bot3-img img").mouseover(function(){
+		$(this).css("transform","rotateY(180deg)");
+	  })
+	  $(".main-bot3-img img").mouseout(function(){
+	    if(flag){$(this).css("transform","rotateY(0deg)");
+		flag=false;
+		setTimeout(function(){flag=true},10)}
+	  })
+    })()
+   </script>
+ </body>
+</html>
